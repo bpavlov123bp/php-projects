@@ -1,22 +1,25 @@
 <?php
 require_once('database.php');
-class MovieView{
+class View{
     private $database;
     public function __construct()
     {
         $this->database = new Database();
     }
     public function output(){
-        $array = array();
+        $outputData = "";
         $result = $this->database->select();
-        while($row = $result->fetch_array()){
-            extract($row);
-            $array[] = $movie_name . " - " . $movie_type;
+        $outputData .= "<table border=\"1\">\n";
+        while($row = $result->fetch_assoc()){
+           $outputData .= "<tr>\n";
+           foreach($row as $value){
+            $outputData .= "<td>\n" . $value . "</td>\n";
+           }
+           $outputData .= "</tr>";
         }
-        return $array;
+        $outputData .= "</table>\n";
+        return $outputData;
     }
+    
 }
-$view = new MovieView();
-foreach($view->output() as $value){
-    echo $value . "\n";
-}
+
