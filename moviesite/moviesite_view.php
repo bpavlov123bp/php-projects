@@ -6,6 +6,7 @@ class View{
     {
         $this->database = new Database();
     }
+
     public function output(){
         $outputData = "";
         $result = $this->database->selectMovie();
@@ -19,12 +20,14 @@ class View{
         <th>Movie Lead Actor</th>
         </tr>";
         
-        while($row = $result->fetch_array()){
+        while($row = $result->fetch_assoc()){
+            $movie_id = $row['movie_id'];
             $movie_name = $row['movie_name'];
             $movie_director = $row['movie_director'];
             $movie_leadactor = $row['movie_leadactor'];
             $outputData .= "<tr>\n";
-            $outputData .= "<td>$movie_name</td>";
+            $outputData .= "<td><a href=\"details_controller.php?movie_id=$movie_id\"
+            title=\"Find out more about $movie_name\">$movie_name</td>";
             $outputData .= "<td>"; 
             $row_d = $resultDirector->fetch_array();
             extract($row_d);
