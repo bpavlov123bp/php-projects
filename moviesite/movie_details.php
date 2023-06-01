@@ -14,6 +14,11 @@ class MovieDetails{
         $resultActor = $this->database->getActor();
         $review_result = $this->database->getReviews();
         $output .= "<h2><center>Movie Details<center></h2>
+        <a href=\"add_movie_controller.php?action=add&id\"><center>Add Movie</a>
+        <a href=\"\">Add People</a>
+        <a href=\"\">Add Movie Review</a>
+        </center>
+        <hr>
         <table border=\"1\" align=\"center\">
         <tr>
         <th>Movie Title</th>

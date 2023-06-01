@@ -13,6 +13,11 @@ class View{
         $resultDirector = $this->database->getDirector();
         $resultActor = $this->database->getActor();
         $outputData .= "<h2><center>Movie Review Database</center></h2>
+        <a href=\"add_movie_controller.php?action=add&id\"><center>Add Movie</a>
+        <a href=\"\">Add People</a>
+        <a href=\"\">Add Movie Review</a>
+        </center>
+        <hr>
         <table border=\"1\" align=\"center\">
         <tr>
         <th>Movie Title</th>
@@ -26,7 +31,7 @@ class View{
             $movie_director = $row['movie_director'];
             $movie_leadactor = $row['movie_leadactor'];
             $outputData .= "<tr>\n";
-            $outputData .= "<td><a href=\"details_controller.php?movie_id=$movie_id\"
+            $outputData .= "<td><a href=\"movie_details_controller.php?movie_id=$movie_id\"
             title=\"Find out more about $movie_name\">$movie_name</td>";
             $outputData .= "<td>"; 
             $row_d = $resultDirector->fetch_array();

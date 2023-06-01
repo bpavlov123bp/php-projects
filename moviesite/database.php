@@ -57,5 +57,22 @@ class Database{
         WHERE review_movie_id='" . $_GET['movie_id'] . "' " . "ORDER BY review_date DESC");
         return $review_query;
     }
+    public function getMovieTypeLabel(){
+        $movie_type = $this->conn->query("SELECT movietype_id, movietype_label 
+        FROM movietype ORDER BY movietype_label");
+        return $movie_type;
+    }
+    public function getPeopleName(){
+        $people_name = $this->conn->query("SELECT * FROM people");
+        return $people_name;
+    }
+    public function addMovie($movie_name, $movie_type, $movie_year, $movie_leadactor, 
+    $movie_director, $movie_running_time, $movie_cost, $movie_takings){
+        $add_movie = $this->conn->query("INSERT INTO movie(movie_name, movie_type, movie_year,
+        movie_leadactor, movie_director)
+        VALUES ('$movie_name', $movie_type, $movie_year, $movie_leadactor, $movie_director, 
+        $movie_running_time, $movie_cost, $movie_takings)");
+        return $add_movie;
+    }
 }
 
