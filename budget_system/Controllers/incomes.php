@@ -1,12 +1,11 @@
 <?php
 require_once(__DIR__ . '/../Database/config.php');
 
-function index(){
+function index($fullname){
     global $connect;
 
-    $showAll = "SELECT incomes.*, users.fullname FROM
-     incomes, users 
-     WHERE incomes.user_id = users.id";
+    $showAll = "SELECT * FROM incomes WHERE 
+    user_id=(SELECT id FROM users WHERE fullname='$fullname')";
     $result = mysqli_query($connect, $showAll)
         or die(mysqli_error($connect));
     return $result;     

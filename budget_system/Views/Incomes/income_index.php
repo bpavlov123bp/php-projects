@@ -2,7 +2,7 @@
 session_start();
 require_once(__DIR__ . '/../../Controllers/incomes.php');
 
-$result = index();
+$result = index($_SESSION['fullname']);
 $row = mysqli_num_rows($result);
 
 ?>
