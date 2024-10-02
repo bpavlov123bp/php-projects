@@ -42,7 +42,7 @@ if($_POST['add_record']){
                 <tr>
                     <td>Amount</td>
                     <td>
-                        <input type="number" name="exp_amount" value="">
+                        <input type="number" name="exp_amount" value="" step=".01">
                     </td>
                 </tr>
                 <tr>

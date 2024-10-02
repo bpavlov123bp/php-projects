@@ -38,8 +38,8 @@ $row = mysqli_num_rows($result);
                     echo "<td>$amount</td>";
                     echo "<td>$user</td>";
                     echo "<td>";?>
-                    <a href="/budget/Views/Incomes/edit_expenses.php?id=<?php echo $row['id']; ?>">[EDIT]</a>
-                    <a href="/budget/Views/Incomes/delete_expenses.php?id=<?php echo $row['id']; ?>">[DELETE]</a>
+                    <a href="/budget/Views/Expenses/edit_expenses.php?id=<?php echo $row['id']; ?>">[EDIT]</a>
+                    <a href="/budget/Views/Expenses/delete_expenses.php?id=<?php echo $row['id']; ?>">[DELETE]</a>
                     <?php
                     echo "</td>";
                     echo "</tr>";

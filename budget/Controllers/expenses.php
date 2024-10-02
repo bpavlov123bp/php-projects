@@ -17,3 +17,20 @@ function addExpenses($date, $name, $amount, $user_id){
         or die(mysqli_error($connect));
     return $result;    
 }
+function editExpenses($exp_id, $date, $name, $amount){
+    global $connect;
+    $editExpenses = "UPDATE expenses SET exp_date='$date', exp_name='$name', exp_amount='$amount'
+    WHERE id='$exp_id'";
+    $result = mysqli_query($connect, $editExpenses)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+
+function deleteExpense($id){
+    global $connect;
+
+    $deleteRecord = "DELETE FROM expenses WHERE id='$id' LIMIT 1";
+    $result = mysqli_query($connect, $deleteRecord)
+        or die(mysqli_error($connect));
+    return $result;
+}
