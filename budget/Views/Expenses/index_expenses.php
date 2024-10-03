@@ -7,18 +7,26 @@ $row = mysqli_num_rows($result);
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
         <title>Expenses</title>
+        <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
     </head>
     <body>
-        <h1 align="center">Budget Management System</h1>
-        <h3 align="center">Expenses of <?php echo $_SESSION['fullname']; ?></h3>
-        <a href="/budget/Views/Expenses/add_expenses.php">Add Expenses</a>
-        <table border="1" align="center">
+        <div class="header">
+            <h1>Budget Management System</h1>
+            <div class="header-right">
+                <a href="/budget/Views/main_page.php">Back to Main Page</a><br>
+                <?php echo $_SESSION['fullname']; ?>
+            </div>
+        </div>
+        <div class="sidenav">
+            <a href="/budget/Views/Expenses/add_expenses.php">Add Expenses</a>
+        </div>
+        <table class="center">
             <tr>
                 <th>Date</th>
                 <th>Name</th>
                 <th>Amount</th>
-                <th>User</th>
                 <th colspan="2">Action</th>
             </tr>
             <?php
@@ -31,12 +39,10 @@ $row = mysqli_num_rows($result);
                     $date = $row['exp_date'];
                     $name = $row['exp_name'];
                     $amount = $row['exp_amount'];
-                    $user = $_SESSION['fullname'];
                     echo "<tr>";
                     echo "<td>$date</td>";
                     echo "<td>$name</td>";
                     echo "<td>$amount</td>";
-                    echo "<td>$user</td>";
                     echo "<td>";?>
                     <a href="/budget/Views/Expenses/edit_expenses.php?id=<?php echo $row['id']; ?>">[EDIT]</a>
                     <a href="/budget/Views/Expenses/delete_expenses.php?id=<?php echo $row['id']; ?>">[DELETE]</a>

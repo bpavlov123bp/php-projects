@@ -10,13 +10,20 @@ if($_SESSION['id'] == ""){
         <head>
             <meta charset="UTF-8">
             <title>Budget Management System</title>
+            <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
         </head>
         <body>
-            <h1 align="center">Budget Managemen System</h1>
-            <h3 align="right">Welcome <?php echo $_SESSION['fullname']; ?></h3>
-            <p><a href="/budget/Views/Incomes/income_index.php">Incomes</a></p>
-            <p><a href="/budget/Views/Expenses/index_expenses.php">Expenses</a></p>
-            <p><a href="/budget/Views/logout.php">Logout</a></p>
+        <div class="header">
+            <h1>Budget Managemen System</h1>
+            <div class="header-right">
+                Welcome <?php echo $_SESSION['fullname']; ?>
+            </div>
+            <div class="sidenav">
+            <a href="/budget/Views/Incomes/income_index.php">Incomes</a>
+            <a href="/budget/Views/Expenses/index_expenses.php">Expenses</a>
+            <a href="/budget/Views/Reports/reports.php">Reports</a>
+            <a href="/budget/Views/logout.php">Log Out</a>
+        </div>
         </body>    
     </html>
 <?php
