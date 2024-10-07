@@ -21,7 +21,6 @@ if($_SESSION['id'] == ""){
             <div class="sidenav">
             <a href="/budget/Views/Incomes/income_index.php">Incomes</a>
             <a href="/budget/Views/Expenses/index_expenses.php">Expenses</a>
-            <a href="/budget/Views/Reports/reports.php">Reports</a>
             <a href="/budget/Views/logout.php">Log Out</a>
         </div>
         </body>    

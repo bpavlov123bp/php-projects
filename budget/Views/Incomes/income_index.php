@@ -23,6 +23,9 @@ $row = mysqli_num_rows($result);
         </div>
         <div class="sidenav">
             <a href="/budget/Views/Incomes/income_add.php">Add Incomes</a>
+            <a href="#">Montly Report</a>
+            <a href="#">Report by Date</a>
+            <a href="#">Report by Name</a>
         </div>
             <table class="center">
                 <tr>

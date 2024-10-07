@@ -34,3 +34,21 @@ function deleteExpense($id){
         or die(mysqli_error($connect));
     return $result;
 }
+
+function showBetweenTwoDates($start_date, $end_date){
+    global $connect;
+    $showBetweenTwoDates = "SELECT * FROM expenses WHERE exp_date BETWEEN '$start_date' AND '$end_date'";
+    $result = mysqli_query($connect, $showBetweenTwoDates)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+
+function showMonth($month){
+    global $connect;
+    
+    $showMonth = "SELECT * FROM expenses WHERE MONTH(exp_date) = '$month'";
+    $result = mysqli_query($connect, $showMonth)
+        or die(mysqli_error($connect));
+
+    return $result;
+}
