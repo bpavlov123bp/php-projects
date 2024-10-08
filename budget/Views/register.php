@@ -25,17 +25,20 @@ if(isset($_POST['register'])){
     }
 }
 ?>
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Register User</title>
+        <meta charset="UTF8">
+        <title>Incomes</title>
+        <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
     </head>
     <body>
-        <h1 align="center">Budget Management System</h1>
-        <h2>Registration Form</h2>
+    <div class="header">
+            <h1>Budget Management System</h1>
+        </div>
+        <h2 style="text-align: center;">Registration Form</h2>
         <form action='' method="post">
-            <table border="0">
+            <table class="center">
                 <tr>
                     <td>Full Name</td>
                     <td>

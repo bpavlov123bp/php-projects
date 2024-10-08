@@ -1,11 +1,11 @@
 <?php
 require_once(__DIR__ . '/../Database/config.php');
 
-function index($fullname){
+function index($user_id){
     global $connect;
 
     $showAll = "SELECT * FROM incomes WHERE 
-    user_id=(SELECT id FROM users WHERE fullname='$fullname')";
+    user_id='$user_id'";
     $result = mysqli_query($connect, $showAll)
         or die(mysqli_error($connect));
     return $result;     
@@ -33,6 +33,30 @@ function deleteIncome($id){
     global $connect;
     $deleteIncome = "DELETE FROM incomes WHERE id='$id' LIMIT 1";
     $result = mysqli_query($connect, $deleteIncome)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+
+function showMonthly($month, $user_id){
+    global $connect;
+    $showMonth = "SELECT * FROM incomes WHERE MONTH(income_date) = '$month' AND user_id='$user_id'";
+    $result = mysqli_query($connect, $showMonth)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+
+function showByDate($start_date, $end_date, $user_id){
+    global $connect;
+    $showByDate = "SELECT * FROM incomes WHERE income_date BETWEEN '$start_date' AND '$end_date' AND user_id='$user_id'";
+    $result = mysqli_query($connect, $showByDate)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+
+function showByName($name, $user_id){
+    global $connect;
+    $showByName = "SELECT * FROM incomes WHERE income_name='$name' AND user_id='$user_id'";
+    $result = mysqli_query($connect, $showByName)
         or die(mysqli_error($connect));
     return $result;    
 }

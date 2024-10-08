@@ -5,11 +5,11 @@ session_start();
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Report By Date</title>
+        <title>Expenses</title>
         <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
     </head>
     <body>
-    <div class="header">
+        <div class="header">
             <h1>Budget Management System</h1>
             <div class="header-right">
                 <a href="/budget/Views/Expenses/index_expenses.php">Back to Expenses Page</a><br>
@@ -19,40 +19,35 @@ session_start();
         <form action='' method="post">
             <table class="center">
                 <tr>
-                    <td>Start Date</td>
-                    <td>
-                        <input type="date" name="start_date">
-                    </td>
-                </tr>
-                <tr>
-                    <td>End Date</td>
-                    <td>
-                        <input type="date" name="end_date">
-                    </td>
+                    <th>Name of Expense</th>
                 </tr>
                 <tr>
                     <td>
-                        <input type="submit" name="show_expenses" value="Show Records">
+                        <input type="text" name="exp_name">
+                    </td>    
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" name="show" value="Show Records">
                     </td>
                 </tr>
             </table>
         </form>
         <?php
         require_once(__DIR__ . '/../../../Controllers/expenses.php');
-        if(isset($_POST['show_expenses'])){
+        if($_POST['show']){
         $user_id = $_SESSION['id'];    
-        $start_date = $_POST['start_date'];
-        $end_date = $_POST['end_date'];
-        $result = showBetweenTwoDates($start_date, $end_date, $user_id);
+        $exp_name = $_POST['exp_name'];
+        $result = showByName($exp_name, $user_id);
         $row = mysqli_num_rows($result);
         $total = 0.0;
         ?>
-            <table class="center">
-                <tr>
-                    <th>Date</th>
-                    <th>Name of Expense</th>
-                    <th>Amount</th>
-                </tr>
+        <table class="center">
+            <tr>
+                <th>Date</th>
+                <th>Name of Expense</th>
+                <th>Amount</th>
+            </tr>
             <?php
             if($row == 0){
                 echo "<tr>";
@@ -69,9 +64,10 @@ session_start();
                 }
                 echo "<tr>";
                 echo "<td colspan=\"3\">Total expenses: " . $total . "</td>";
-                echo "</tr>";
+                echo "<tr>";
             }
         }
             ?>
+        </table>      
     </body>
-</html>
+</html>        

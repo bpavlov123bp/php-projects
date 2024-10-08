@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once(__DIR__ . '/../../Controllers/expenses.php');
-$result = index($_SESSION['fullname']);
+$result = index($_SESSION['id']);
 $row = mysqli_num_rows($result);
 ?>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@ $row = mysqli_num_rows($result);
             <a href="/budget/Views/Expenses/add_expenses.php">Add Expenses</a>
             <a href="/budget/Views/Reports/Expenses/report_exp_month.php">Montly Report</a>
             <a href="/budget/Views/Reports/Expenses/report_exp_by_date.php">Report by Date</a>
-            <a href="#">Report by Name</a>
+            <a href="/budget/Views/Reports/Expenses/report_exp_by_name.php">Report by Name</a>
         </div>
         <table class="center">
             <tr>

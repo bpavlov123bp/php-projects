@@ -1,9 +1,9 @@
 <?php
 require_once(__DIR__ . '/../Database/config.php');
 
-function index($fullname){
+function index($user_id){
     global $connect;
-    $index = "SELECT * FROM expenses WHERE user_id=(SELECT id FROM users WHERE fullname='$fullname')";
+    $index = "SELECT * FROM expenses WHERE user_id='$user_id'";
     $result = mysqli_query($connect, $index)
         or die(mysqli_error($connect));
     return $result;
@@ -35,20 +35,29 @@ function deleteExpense($id){
     return $result;
 }
 
-function showBetweenTwoDates($start_date, $end_date){
+function showBetweenTwoDates($start_date, $end_date, $user_id){
     global $connect;
-    $showBetweenTwoDates = "SELECT * FROM expenses WHERE exp_date BETWEEN '$start_date' AND '$end_date'";
+    $showBetweenTwoDates = "SELECT * FROM expenses WHERE exp_date BETWEEN '$start_date' AND '$end_date' AND user_id='$user_id'";
     $result = mysqli_query($connect, $showBetweenTwoDates)
         or die(mysqli_error($connect));
     return $result;    
 }
 
-function showMonth($month){
+function showMonth($month, $user_id){
     global $connect;
     
-    $showMonth = "SELECT * FROM expenses WHERE MONTH(exp_date) = '$month'";
+    $showMonth = "SELECT * FROM expenses WHERE MONTH(exp_date) = '$month' AND user_id='$user_id'";
     $result = mysqli_query($connect, $showMonth)
         or die(mysqli_error($connect));
 
     return $result;
 }
+
+function showByName($exp_name, $user_id){
+    global $connect;
+    $showByName = "SELECT * FROM expenses WHERE exp_name='$exp_name' AND user_id='$user_id'";
+    $result = mysqli_query($connect, $showByName)
+        or die(mysqli_error($connect));
+    return $result;    
+}
+

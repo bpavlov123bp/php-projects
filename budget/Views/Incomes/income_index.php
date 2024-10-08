@@ -2,7 +2,7 @@
 session_start();
 require_once(__DIR__ . '/../../Controllers/incomes.php');
 
-$result = index($_SESSION['fullname']);
+$result = index($_SESSION['id']);
 $row = mysqli_num_rows($result);
 
 ?>
@@ -23,9 +23,9 @@ $row = mysqli_num_rows($result);
         </div>
         <div class="sidenav">
             <a href="/budget/Views/Incomes/income_add.php">Add Incomes</a>
-            <a href="#">Montly Report</a>
-            <a href="#">Report by Date</a>
-            <a href="#">Report by Name</a>
+            <a href="/budget/Views/Reports/Incomes/report_inc_month.php">Montly Report</a>
+            <a href="/budget/Views/Reports/Incomes/report_inc_by_date.php">Report by Date</a>
+            <a href="/budget/Views/Reports/Incomes/report_inc_by_name.php">Report by Name</a>
         </div>
             <table class="center">
                 <tr>

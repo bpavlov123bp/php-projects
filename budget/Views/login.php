@@ -20,14 +20,17 @@ if(isset($_POST['login'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Login Page</title>
+        <meta charset="UTF8">
+        <title>Incomes</title>
+        <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
     </head>
     <body>
-        <h1 align="center">Budget Management System</h1>
-        <h2>Login Form</h2>
+    <div class="header">
+            <h1>Budget Management System</h1>
+        </div>
+        <h2 style="text-align: center;">Login Form</h2>
         <form action='' method="post">
-            <table border="0">
+            <table class="center">
                 <tr>
                     <td>Username</td>
                     <td>

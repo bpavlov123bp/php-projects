@@ -24,14 +24,21 @@ if(isset($_POST['edit_income'])){
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Edit Incomes</title>
+        <meta charset="UTF8">
+        <title>Incomes</title>
+        <link rel="stylesheet" type="text/css" href="/budget/Styles/style.css">
     </head>
     <body>
-        <h1 align="center">Budget Management System</h1>
-        <h2>Edit Record</h2>
+    <div class="header">
+            <h1>Budget Management System</h1>
+            <h2>Edit Income</h2>
+            <div class="header-right">
+                <a href="/budget/Views/Incomes/income_index.php">Back to Income Page</a><br>
+                <?php echo $_SESSION['fullname']; ?>
+            </div>
+        </div>
         <form action='' method="post">
-            <table border="0">
+            <table class="center">
                 <tr>
                     <td>Date</td>
                     <td>
