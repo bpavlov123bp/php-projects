@@ -55,7 +55,7 @@ function showByDate($start_date, $end_date, $user_id){
 
 function showByName($name, $user_id){
     global $connect;
-    $showByName = "SELECT * FROM incomes WHERE income_name='$name' AND user_id='$user_id'";
+    $showByName = "SELECT * FROM incomes WHERE income_name LIKE '%$name%' AND user_id='$user_id'";
     $result = mysqli_query($connect, $showByName)
         or die(mysqli_error($connect));
     return $result;    

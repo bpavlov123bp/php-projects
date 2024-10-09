@@ -55,7 +55,7 @@ function showMonth($month, $user_id){
 
 function showByName($exp_name, $user_id){
     global $connect;
-    $showByName = "SELECT * FROM expenses WHERE exp_name='$exp_name' AND user_id='$user_id'";
+    $showByName = "SELECT * FROM expenses WHERE exp_name LIKE'%$exp_name%' AND user_id='$user_id'";
     $result = mysqli_query($connect, $showByName)
         or die(mysqli_error($connect));
     return $result;    
